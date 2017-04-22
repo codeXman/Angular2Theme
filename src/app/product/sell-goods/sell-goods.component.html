@@ -47,32 +47,32 @@
 			<md-card-content>
 					<md-divider></md-divider>
 					<div fxLayout="row" class="">
-						<div fxLayout="column" fxFlex class="mr-1">
-							<h6 class="py-1 my-0 ">Product</h6>
+						<div fxLayout="column" fxFlex class="">
+							<h6 class="py-1 my-0 bg-orange pr-1">Product</h6>
 							<md-divider></md-divider>
-							<md-input-container floatPlaceholder="never" class="my-1">
+							<md-input-container floatPlaceholder="never" class="ml-1 my-1">
 				            	<input mdInput [(ngModel)]="customer.product" name="product" placeholder="Product">
 				          	</md-input-container>
 						</div>
 						<md-divider></md-divider>
-						<div fxLayout="column" fxFlex class="mr-1">					
-							<h6 class="py-1 my-0 ">Price</h6>
+						<div fxLayout="column" fxFlex class="">					
+							<h6 class="py-1 my-0 pr-1 bg-orange">Price</h6>
 							<md-divider></md-divider>
-							<md-input-container floatPlaceholder="never" class=" my-1">
+							<md-input-container floatPlaceholder="never" class="ml-1  my-1">
 				            	<input mdInput  [(ngModel)]="customer.price" name="price" placeholder="Price">
 				          	</md-input-container>
 						</div>
 						<md-divider></md-divider>
-						<div fxLayout="column" class="mr-1" fxFlex >
-							<h6 class="py-1 my-0">Quantity</h6>
+						<div fxLayout="column" class="" fxFlex >
+							<h6 class="py-1 my-0 pr-1 bg-orange">Quantity</h6>
 							<md-divider></md-divider>
-							<md-input-container floatPlaceholder="never" class="my-1">
+							<md-input-container floatPlaceholder="never" class="ml-1 my-1">
 				            	<input mdInput  [(ngModel)]="customer.quantity" name="quantity" placeholder="Quantity">
 				          	</md-input-container>							
 						</div>
 						<md-divider></md-divider>
-						<div fxLayout="column" fxFlex class="mr-1">
-							<h6 class="py-1 my-0">Total</h6>
+						<div fxLayout="column" fxFlex class="">
+							<h6 class="py-1 my-0 pr-1 bg-orange">Total</h6>
 							<md-divider></md-divider>
 							<md-input-container floatPlaceholder="never" class="my-1">
 				            	<input mdInput  [(ngModel)]="customer.total" name="total" placeholder="Total">
@@ -82,7 +82,7 @@
 			</md-card-content>
 		</md-card>
 		<md-card>
-			<md-card-actions>
+			<md-card-actions class="pr-2">
 				<button md-button md-raised-button color="primary">Sign Up</button>
 				<button md-button md-raised-button color="primary">Open The Printer</button>
 			</md-card-actions>
