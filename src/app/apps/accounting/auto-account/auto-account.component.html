@@ -1,0 +1,14 @@
+<ngx-datatable
+  class="material"
+  [rows]="rows"
+  [columns]="[{name:'numero du compte',prop:'numAccount'},{name:'Libelle',prop:'libelle'}]"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [externalPaging]="true"
+  [count]="count"
+  [offset]="offset"
+  [limit]="limit"
+  (page)='onPage($event)'>
+</ngx-datatable>

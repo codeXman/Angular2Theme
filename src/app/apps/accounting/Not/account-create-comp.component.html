@@ -1,0 +1,57 @@
+<md-toolbar color="primary">
+  <md-toolbar-row>   
+  </md-toolbar-row>
+</md-toolbar>
+
+<div  fxLayout="row"  fxLayoutWrap="wrap"  fxLayoutAlign="center start">
+
+  <div fxFlex.gt-sm="55" fxFlex="100">
+   
+    <md-card class="mat-card-top">
+      <md-tab-group>
+	  
+        <md-tab>
+          <template md-tab-label>{{'CreateAccount' | translate }}</template>
+          <md-card-content>
+		         
+           <form  fxLayout="column" (ngSubmit)="onSubmit(form.value)" [formGroup]="form" >
+              
+              <md-input-container class="mb-1">
+                <input mdInput placeholder=" {{'NOM' | translate }}" [formControl]="form.controls['libelle']">
+				    
+              </md-input-container>
+			   <md-select placeholder="{{'TypeCompte' | translate }}" class="mb-1" [formControl]="form.controls['type']">
+                <md-option value="CCLIENT">{{"CLIENT"|translate}}</md-option>
+               <md-option value="CFOURN">{{"FOURN"|translate}}</md-option>
+			   <md-option value="CCHARGE">{{"DEPENSE"|translate}}</md-option>
+              </md-select>
+              <md-input-container  class="mb-1">
+                <input mdInput placeholder=" {{'ACCOUNTNUM' | translate }}"  [formControl]="form.controls['numCompte']">
+              </md-input-container>
+              <md-input-container class="mb-1">
+                <input mdInput placeholder="{{'Tel' | translate }}" [formControl]="form.controls['tel']">
+              </md-input-container>
+
+             
+              <md-input-container class="mb-1">
+                <input mdInput placeholder="{{'Adresse' | translate }}" [formControl]="form.controls['adresse']">
+              </md-input-container>
+
+           </form>
+          </md-card-content>
+        </md-tab>
+      
+      </md-tab-group>
+      <hr>
+      <md-card-actions>
+        <button md-raised-button class="shadow-none" (click)="doSaveAccount()" >{{"SAVE" | translate}}</button>
+        <button md-raised-button color="primary" (click)="redirect()">{{"Cancel" | translate}}</button>
+		
+		
+		
+		
+      </md-card-actions>
+    </md-card>
+	 
+  </div>
+</div>

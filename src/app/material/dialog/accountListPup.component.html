@@ -1,0 +1,6 @@
+ <h5 class="mt-0">Maecenas faucibus mollis interdum.</h5>
+  <md-input-container>
+    <input mdInput placeholder="How much?" #howMuch type="number" style="width: 100%;">
+  </md-input-container>
+  <p> {{ jazzMessage }} </p>
+  <button md-button type="button" (click)="dialogRef.close(howMuch.value)">Close dialog</button>`

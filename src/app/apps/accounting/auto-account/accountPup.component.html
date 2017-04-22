@@ -1,0 +1,21 @@
+<md-card class="demo-dialog-card">
+
+  
+    
+    <md-card-content> 
+	 <form  fxLayout="row" fxLayoutAlign="start center" class="mb-2" [formGroup]="form" >
+      <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{'ACCOUNTNUM' | translate }}"  [formControl]="form.controls['numAccount']"  maxLength="6" >
+		<md-icon mdPrefix (click)="open()">help</md-icon>
+        
+      </md-input-container>
+      <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{'label' | translate }}" [formControl]="form.controls['libelle']" [disabled]="false" >
+      </md-input-container>
+	  
+    </form>
+	
+  
+  </md-card-content>
+  
+</md-card>

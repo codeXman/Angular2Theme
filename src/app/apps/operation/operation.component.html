@@ -1,0 +1,53 @@
+<md-card>
+  <md-card-title>{{'OPERATION' | translate }}</md-card-title>
+  <form [formGroup]="form">
+    <md-card-content> 
+      
+	  <div class="mb-1">
+        <md-input-container style="width: 60%">
+          <input mdInput placeholder="{{'DATE' | translate }}" [formControl]="form.controls['date']" type="date">
+        </md-input-container>
+        <small *ngIf="form.controls['date'].hasError('required') && form.controls['date'].touched" class="mat-text-warn">{{'DATEREQ' | translate }}</small>
+        <small *ngIf="form.controls['date'].errors?.date && form.controls['date'].touched" class="mat-text-warn">You must include a valid date.</small>
+      </div>
+	  <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+       
+		  <md-select placeholder="{{'TypeCompte' | translate }}" class="mb-1" [formControl]="form.controls['type']" style="width: 50%">
+                <md-option value="IN">{{'IN' | translate }}</md-option>
+               <md-option value="OUT">{{'OUT' | translate }}</md-option>
+			   
+              </md-select>
+          <small *ngIf="form.controls['type'].hasError('required') && form.controls['type'].touched" class="mat-text-warn">{{'TYPEREQ' | translate }}.</small>
+          
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="{{'MONTANT' | translate }}" [formControl]="form.controls['montant']"  pInputText (keypress)="onlyNumberKey($event)">
+          </md-input-container>
+          <small *ngIf="form.controls['montant'].hasError('required') && form.controls['montant'].touched" class="mat-text-warn">{{'MONTANTREQ' | translate }}.</small>
+         
+      </div>
+
+      <div  fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+        <md-input-container style="width: 100%">
+          <input mdInput placeholder="{{'label' | translate }}" [formControl]="form.controls['name']" >
+       </md-input-container>
+		<md-input-container style="width: 100%">
+		<input mdInput placeholder="{{'REMARQUE' | translate }}" [formControl]="form.controls['remarque']" >
+		</md-input-container>
+      </div>
+        
+      
+
+      <div class="mb-1">
+       
+          <acc-dialog (changeNumCompte)="getNotification($event)"></acc-dialog>
+       
+        </div>
+
+    	
+    </md-card-content>
+    <hr>
+    <md-card-actions>
+      <button md-raised-button color="primary" type="submit" [disabled]="!form.valid" (click)="doSaveAccount()">Submit</button>
+    </md-card-actions>
+  </form>
+</md-card>

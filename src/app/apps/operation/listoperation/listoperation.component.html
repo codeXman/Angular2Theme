@@ -1,0 +1,64 @@
+<md-card>
+  <md-card-title>{{'ACCCAISSE' | translate }}</md-card-title>
+  <md-card-content>
+   
+    <md-card>
+      <md-tab-group >
+        <md-tab >
+          <template md-tab-label>{{'IN' | translate }}</template>
+          <md-card-content>
+           <ngx-datatable
+  class="material"
+  [rows]="rowsIn"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [externalPaging]="true"
+  [count]="countIn"
+  [offset]="offsetIn"
+  [limit]="limitIn"
+  (page)='onPageIn($event)'>
+   <ngx-datatable-column name="{{'DATE' | translate }}" prop="dateOperation" ></ngx-datatable-column>
+   <ngx-datatable-column name="{{'label' | translate }}" prop="name" ></ngx-datatable-column>
+   <ngx-datatable-column name="{{'TypeCompte' | translate }}" prop="type.libelle" ></ngx-datatable-column> 
+   <ngx-datatable-column name="{{'MONTANT' | translate }}" prop="montantDebit" ></ngx-datatable-column>
+   <ngx-datatable-column name="{{'DETAIL' | translate }}" prop="remarque" ></ngx-datatable-column>
+  
+  
+</ngx-datatable>
+          </md-card-content>
+		  
+        </md-tab>
+		<md-tab >
+          <template md-tab-label>{{'OUT' | translate }}</template>
+           <md-card-content>
+           <ngx-datatable
+  class="material"
+  [rows]="rowsOut"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [externalPaging]="true"
+  [count]="countOut"
+  [offset]="offsetOut"
+  [limit]="limitOut"
+  (page)='onPageOut($event)'>
+   <ngx-datatable-column name="{{'DATE' | translate }}" prop="dateOperation" ></ngx-datatable-column>
+   <ngx-datatable-column name="{{'label' | translate }}" prop="name" ></ngx-datatable-column>
+   <ngx-datatable-column name="{{'TypeCompte' | translate }}" prop="type.libelle" ></ngx-datatable-column> 
+   <ngx-datatable-column name="{{'MONTANT' | translate }}" prop="montantCredit" ></ngx-datatable-column>
+   <ngx-datatable-column name="{{'DETAIL' | translate }}" prop="remarque" ></ngx-datatable-column>
+  
+</ngx-datatable>
+          </md-card-content>
+         
+        </md-tab>
+      </md-tab-group>
+    </md-card>
+  </md-card-content>
+</md-card>
+
+
+
