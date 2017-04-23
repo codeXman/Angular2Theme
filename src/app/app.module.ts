@@ -48,8 +48,8 @@ export function createTranslateLoader(http: Http) {
     SharedModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,	
-    HttpModule
-    ,NgxDatatableModule,
+    HttpModule,
+    NgxDatatableModule,
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
@@ -57,7 +57,7 @@ export function createTranslateLoader(http: Http) {
     }),
     MaterialModule,
     FlexLayoutModule,
-   SimpleNotificationsModule.forRoot(),  
+    SimpleNotificationsModule.forRoot(),  
     FormsModule,
     // Including the ReactiveFormsModule in our application
     ReactiveFormsModule
@@ -70,4 +70,4 @@ export function createTranslateLoader(http: Http) {
 })
 export class AppModule {
 
-	}
+}

@@ -74,7 +74,7 @@ const MENUITEMS = [
     icon : 'shop',
     children: [
       {state: "sell-goods", name: "SELLING GOODS"},
-      {state: "buyGoods", name: "BUY GOODS"},
+      {state: "buy-goods", name: "BUY GOODS"},
       {state: "invoices", name: "INVOICES", },
       {state: "product", name: "PRODUCT"},
       {state: "accessDelivery", name: "ACCESS DELIVERY"},
@@ -99,6 +99,27 @@ const MENUITEMS = [
     type: 'link',
     icon : 'exit_to_app'
   }
+  // , {
+  //   state: 'apps',
+  //   name: 'APPS',
+  //   type: 'sub',
+  //   icon: 'apps',
+  //   badge: [
+  //     {type: 'red', value: '5'}
+  //   ],
+  //   children: [
+  //     {state: 'accountnumcreate', name: 'ACCOUNTNUMCREATE'},
+  //     {state: 'listAccount', name: 'AccountList'},
+  //     {state: 'createOperation', name: 'OPERATION'},
+  //     {state: 'etatCompte', name: 'ETATCOMPTE'},
+  //     {state: 'listOper', name: 'OPERATIONS'},
+  //     {state: 'calendar', name: 'CALENDAR'},    
+  //     {state: 'media', name: 'MEDIA'},
+  //     {state: 'messages', name: 'MESSAGES'},
+  //     {state: 'social', name: 'SOCIAL'},
+  //     {state: 'chat', name: 'CHAT'}
+  //   ]
+  // },
 ];
 // const MENUITEMS = [
 //   {

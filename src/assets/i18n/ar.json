@@ -114,6 +114,23 @@
     "FUTURE'S ALERT" : "تنبيهات المستقبل",
     
     "EXIT" : "خروج",
+    "Delivered" : "سلمت",
+
+    "Bill" : "فاتورة",
+
+    "Open The Printer" : "فتح الطابعة",
+    "Customer Name": "إسم الزبون",
+    "date" : "التاريخ",
+    "Quality of Payment": "نوعية الدفع",
+    "Account Number": "رقم الحساب",
+    "Details": "التفاصيل ",
+    "Product": "المنتوج",
+    "Price" : "السعر",
+    "Quantity" : "الكمية",
+    "Total" : "المجموع",
+
+    "Sign Up" : "فتح الطابعة",
+
 
     "GENERAL": "عامة",
     "OPERATION": "إنشاء عملية",
@@ -138,6 +155,8 @@
     "DETAIL": "التفاصيل",
     "CREDIT": "له",
     "DEBIT": "عليه",
-    "ACCCAISSE": "عمليات الصندوق",
-    "Delivered" : "عمليات الصندوق"
+    "Credit": "له",
+    "Debit": "عليه",
+    "Cash" : "نقد",
+    "ACCCAISSE": "عمليات الصندوق"
 }

@@ -16,11 +16,12 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DatepickerModule } from 'angular2-material-datepicker';
+import { TranslateModule } from 'ng2-translate/ng2-translate';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 
 import { ProductRoutes } from './product.routing';
 import { SellGoodsComponent } from './sell-goods/sell-goods.component';
-// import { InvoiceComponent } from './invoice/invoice.component';
-// import { TimelineComponent } from './timeline/timeline.component';
+import { BuyGoodsComponent } from './buy-goods/buy-goods.component';
 // import { EditComponent } from './edit/edit.component';
 // import { PricingComponent } from './pricing/pricing.component';
 
@@ -28,6 +29,7 @@ import { SellGoodsComponent } from './sell-goods/sell-goods.component';
   imports: [
     CommonModule,
     RouterModule.forChild(ProductRoutes),
+    TranslateModule,
     MdIconModule,
     MdCardModule,
     MdInputModule,
@@ -41,10 +43,12 @@ import { SellGoodsComponent } from './sell-goods/sell-goods.component';
     FlexLayoutModule,
     FormsModule,
     NgxDatatableModule,
+    Ng2FilterPipeModule,
     DatepickerModule
   ],
   declarations: [
-    SellGoodsComponent
+    SellGoodsComponent,
+    BuyGoodsComponent
   ]
 })
 

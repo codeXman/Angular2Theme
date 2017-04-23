@@ -27,7 +27,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('sidemenu') sidemenu;
 
   constructor(public menuItems: MenuItems, private router: Router, public translate: TranslateService ) {
-    const browserLang: string = translate.getBrowserLang();
+    // const browserLang: string = translate.getBrowserLang();
     // translate.use(browserLang.match(/en|fr|ar/) ? browserLang : 'ar');
     translate.use('ar');
   }

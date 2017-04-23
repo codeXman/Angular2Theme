@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/do';
-import { Account } from './account';
+// import { Account } from './account';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
@@ -30,23 +30,23 @@ const password = new FormControl('', Validators.required);
 const confirmPassword = new FormControl('', CustomValidators.equalTo(password));
 
 @Component({
-  selector: 'app-account-create-comp',
-  templateUrl: './account-create-comp.component.html',
+  selector: 'buy-goods',
+  templateUrl: './buy-goods.component.html',
  // template: '<simple-notifications [options]="options"></simple-notifications>',
-  styleUrls: ['./account-create-comp.component.scss']
+  styleUrls: ['./buy-goods.component.scss']
 })
-export class AccountCreateCompComponent implements OnInit {
-	 public form =null;
+export class BuyGoodsComponent implements OnInit {
+	public form =null;
 	// public form =FormGroup
-	 public http:Http;
+	public http:Http;
 	public service: NotificationsService;
 	 
 	 //public header:Header;
-	 public account:Account;
-     public static PATH:string = 'http://diffter.com/creditAJS//admin/saveAccount'; 
-     errorMsg: string;	
-	 userStatus: string;	
-     private data: any;
+	 // public account:Account;
+  public static PATH:string = 'http://diffter.com/creditAJS//admin/saveAccount'; 
+  errorMsg: string;	
+	userStatus: string;	
+  private data: any;
   constructor(private fb: FormBuilder, http: Http,private _service:NotificationsService,translate: TranslateService,private router: Router) {
 	  this.http=http;
 	 this.service=_service;
@@ -75,16 +75,16 @@ export class AccountCreateCompComponent implements OnInit {
   
   
   
- fullUpdate() {
+  fullUpdate() {
     this.form.patchValue({libelle: 'Partial', password: 'monkey'});
-}
+  }
   reset() {
     this.form.reset();
-}
+  }
 
 
 
-redirect() {
+  redirect() {
     this.router.navigate(['./apps']);
   }
 
@@ -97,38 +97,34 @@ redirect() {
     public temp: boolean[] = [true, false];
 
 
-isActive:boolean=false;
+    isActive:boolean=false;
   
     doSaveAccount() {
-		//this.service
-		//this.show_message('inside');
-		let a = this._service.success(this.title, this.content, {id: 123});
-		alert('erreur los call from angular ');
-		//this.withOverride();
-	
-       let formData = this.form.value;
-       let header = new Headers();
-	   header.append('Content-Type', 'application/json');
-   
-   
-	this.http.post(AccountCreateCompComponent.PATH, formData,{headers: header}).map((res:Response) => res.json()).subscribe(
-        (data) => {
-		this.form=data;
-		this.account=data;
-		//let mess: string= this.account.message as string;
-		//this.show_message("mess");
-		//alert(''+mess);
-		 //this._service.success('bla', mess);
-		
-          
-        },
-        err => alert('erreur los call from angular '+err)// complete
-    );
-	
-	
-	
-	
-  }
+      //this.service
+      //this.show_message('inside');
+      let a = this._service.success(this.title, this.content, {id: 123});
+      alert('erreur los call from angular ');
+      //this.withOverride();
+
+      let formData = this.form.value;
+      let header = new Headers();
+      header.append('Content-Type', 'application/json');
+
+
+      this.http.post(AccountCreateCompComponent.PATH, formData,{headers: header})
+        .map((res:Response) => res.json())
+        .subscribe(
+          (data) => {
+            this.form=data;
+            // this.account=data;
+            //let mess: string= this.account.message as string;
+            //this.show_message("mess");
+            //alert(''+mess);
+            //this._service.success('bla', mess);
+          },
+            err => alert('erreur los call from angular '+err)// complete
+        );	
+    }
   
   show_message(){
 	  //alert('erreur los call from angular ');
@@ -136,11 +132,11 @@ isActive:boolean=false;
   }
   onCreate(event) {
         console.log(event);
-    }
+  }
 
-    onDestroy(event) {
-        console.log(event);
-    }
+  onDestroy(event) {
+    console.log(event);
+  }
 	private html = `<p>Test</p><p>A nother test</p>`;
 	create() {
         switch (this.type) {
@@ -164,9 +160,9 @@ isActive:boolean=false;
 	
 	withOverride() { this._service.create('pero', 'peric', 'success', {timeOut: 0, clickToClose: false, maxLength: 3, showProgressBar: true, theClass: 'overrideTest'}) }
 
-    withHtml() {this._service.html(this.html, 'success') }
+  withHtml() {this._service.html(this.html, 'success') }
 
-    removeAll() { this._service.remove() }
+  removeAll() { this._service.remove() }
   
   public options = {
         timeOut: 5000,

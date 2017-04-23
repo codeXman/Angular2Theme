@@ -8,16 +8,23 @@ import { TranslateService } from 'ng2-translate/ng2-translate';
   templateUrl: './sell-goods.component.html',
   styleUrls: ['./sell-goods.component.scss']
 })
+
+
 export class SellGoodsComponent implements OnInit {
 
+  // public translate: TranslateService;
+  date = new Date();
 
-  constructor(public translate : TranslateService) {
-  	translate.use('ar');
+  constructor(public translate: TranslateService) {
+    // console.log("constructor");
+    // console.log(translate);
+    // translate.use('ar');
   }
 
 
-  ngOnInit(){
-
+  ngOnInit() : void{
+    // console.log("on init");
+    // console.log(this.translate);
   }
 
   label = {
@@ -42,6 +49,4 @@ export class SellGoodsComponent implements OnInit {
   	accountNumber : '',
   	detail : ''
   };
-
-
 }

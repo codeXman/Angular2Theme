@@ -2,16 +2,16 @@
 	<div fxFlex="100" fxLayout="column">
 		<md-card fxFlex="100">
 			<md-card-header class="">
-				<md-card-title class="py-0"><h1 class="my-1">Bill</h1></md-card-title>
+				<md-card-title class="py-0"><h1 class="my-1">{{'Bill' | translate}}</h1></md-card-title>
 			</md-card-header>
 			<md-card-content>
 				<form fxLayout="column">
 					<div fxLayout="row">					
 						<div fxLayout="column" fxFlex class="mx-1">
 							<md-input-container class="mb-1">
-				            	<input mdInput [(ngModel)]="customer.name" name="customerName"  placeholder="Customer Name" >
+				            	<input mdInput [(ngModel)]="customer.name" name="customerName"  placeholder="{{'Customer Name' | translate}}" >
 				          	</md-input-container>
-		          			<md-checkbox [(ngModel)]="customer.isDelivered" name="isDelivered" >{{label.delivered}}</md-checkbox>
+		          			<md-checkbox [(ngModel)]="customer.isDelivered" name="isDelivered" >{{"Delivered"  | translate}}</md-checkbox>
 						</div>
 						<div fxLayout="column" fxFlex class="mx-1">
 							<!-- <ng2-datepicker [options]="customer.options" [(ngModel)]="customer.date" name="date"></ng2-datepicker> -->
@@ -19,24 +19,24 @@
 				            	<input mdInput [(ngModel)]="customer.date" name="date" placeholder="Date" ng2-datetime-picker date-only="true">
 				          	</md-input-container> -->
 				          		<!-- <input mdInput material-datepicker [(ngModel)]="customer.date" name="date"> -->
-			          		<material-datepicker [(date)]="customer.date" name="date" class="mb-1"></material-datepicker>
+			          		<material-datepicker [(date)]="customer.date" name="date" class="mb-1" placeholder="{{'date' | translate}}"></material-datepicker>
 <!-- 				          	<md-input-container class="mb-1">
 				            	<input mdInput [(ngModel)]="customer.date" name="date" placeholder="Date">
 				          	</md-input-container> -->
-				          	<md-select placeholder="Quality of Payment" [(ngModel)]="customer.quality" name="qualityOfPayment"  class="my-1">
+				          	<md-select placeholder="{{'Quality of Payment' | translate}}" [(ngModel)]="customer.quality" name="qualityOfPayment"  class="my-1">
 		    					<md-option *ngFor="let qualityOfPayment of qualityOfPayments" [value]="qualityOfPayment.value">
-		      						{{qualityOfPayment.viewValue}}
+		      						{{qualityOfPayment.viewValue  | translate}}
 		    					</md-option>
 		  					</md-select>
 				          	<md-input-container *ngIf="customer.quality==2">
-				            	<input mdInput  [(ngModel)]="customer.accountNumber" name="accountNumber" placeholder="Account Number">
+				            	<input mdInput  [(ngModel)]="customer.accountNumber" name="accountNumber" placeholder="{{'Account Number'  | translate}}">
 				          	</md-input-container>
 						</div>
 					</div>
 					<div fxLayout="row" class="mb-1">
 						<div fxLayout="column" fxFlex class="mx-1">
 				          	<md-input-container>
-				            	<textarea mdInput [(ngModel)]="customer.detail" name="detail" placeholder="Details"></textarea>
+				            	<textarea mdInput [(ngModel)]="customer.detail" name="detail" placeholder="{{'Details'  | translate}}"></textarea>
 				          	</md-input-container>
 						</div>
 					</div>
@@ -48,34 +48,34 @@
 					<md-divider></md-divider>
 					<div fxLayout="row" class="">
 						<div fxLayout="column" fxFlex class="">
-							<h6 class="py-1 my-0 bg-orange pr-1">Product</h6>
+							<h6 class="py-1 my-0 bg-orange pr-1">{{'Product'  | translate}}</h6>
 							<md-divider></md-divider>
 							<md-input-container floatPlaceholder="never" class="ml-1 my-1">
-				            	<input mdInput [(ngModel)]="customer.product" name="product" placeholder="Product">
+				            	<input mdInput [(ngModel)]="customer.product" name="product" placeholder="{{'Product'  | translate}}">
 				          	</md-input-container>
 						</div>
 						<md-divider></md-divider>
 						<div fxLayout="column" fxFlex class="">					
-							<h6 class="py-1 my-0 pr-1 bg-orange">Price</h6>
+							<h6 class="py-1 my-0 pr-1 bg-orange">{{'Price' | translate}}</h6>
 							<md-divider></md-divider>
 							<md-input-container floatPlaceholder="never" class="ml-1  my-1">
-				            	<input mdInput  [(ngModel)]="customer.price" name="price" placeholder="Price">
+				            	<input mdInput  [(ngModel)]="customer.price" name="price" placeholder="{{'Price'  | translate}}">
 				          	</md-input-container>
 						</div>
 						<md-divider></md-divider>
 						<div fxLayout="column" class="" fxFlex >
-							<h6 class="py-1 my-0 pr-1 bg-orange">Quantity</h6>
+							<h6 class="py-1 my-0 pr-1 bg-orange">{{'Quantity' | translate}}</h6>
 							<md-divider></md-divider>
 							<md-input-container floatPlaceholder="never" class="ml-1 my-1">
-				            	<input mdInput  [(ngModel)]="customer.quantity" name="quantity" placeholder="Quantity">
+				            	<input mdInput  [(ngModel)]="customer.quantity" name="quantity" placeholder="{{'Quantity' | translate}}">
 				          	</md-input-container>							
 						</div>
 						<md-divider></md-divider>
 						<div fxLayout="column" fxFlex class="">
-							<h6 class="py-1 my-0 pr-1 bg-orange">Total</h6>
+							<h6 class="py-1 my-0 pr-1 bg-orange">{{'Total' | translate}}</h6>
 							<md-divider></md-divider>
 							<md-input-container floatPlaceholder="never" class="my-1">
-				            	<input mdInput  [(ngModel)]="customer.total" name="total" placeholder="Total">
+				            	<input mdInput  [(ngModel)]="customer.total" name="total" placeholder="{{'Total' | translate}}">
 				          	</md-input-container>						
 						</div>
 					</div>
@@ -83,8 +83,8 @@
 		</md-card>
 		<md-card>
 			<md-card-actions class="pr-2">
-				<button md-button md-raised-button color="primary">Sign Up</button>
-				<button md-button md-raised-button color="primary">Open The Printer</button>
+				<button md-button md-raised-button color="primary">{{'Sign Up'  | translate}}</button>
+				<button md-button md-raised-button color="primary">{{'Open The Printer' | translate}}</button>
 			</md-card-actions>
 			
 		</md-card>				

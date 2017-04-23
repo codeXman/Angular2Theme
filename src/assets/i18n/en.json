@@ -113,6 +113,9 @@
     
     "EXIT" : "EXIT",
 
+    "Delivered" : "Delivered",
+    "Bill" : "Bill",
+
     "GENERAL": "General",
     "OPERATION": "create Operation",
     "OPERATIONS": "Operation List",
@@ -123,6 +126,4 @@
     "CLIENT": "Client",
     "FOURN": "Fournisseur",
     "DEPENSE": "Depense"
-
-
 }
