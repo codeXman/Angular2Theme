@@ -40,7 +40,7 @@ import { SellGoodsComponent } from './sell-goods/sell-goods.component';
     MdSelectModule,
     FlexLayoutModule,
     FormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
     DatepickerModule
   ],
   declarations: [
