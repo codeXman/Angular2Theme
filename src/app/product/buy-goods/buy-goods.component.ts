@@ -111,7 +111,7 @@ export class BuyGoodsComponent implements OnInit {
       header.append('Content-Type', 'application/json');
 
 
-      this.http.post(AccountCreateCompComponent.PATH, formData,{headers: header})
+      this.http.post(BuyGoodsComponent.PATH, formData,{headers: header})
         .map((res:Response) => res.json())
         .subscribe(
           (data) => {

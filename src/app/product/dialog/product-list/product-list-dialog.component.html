@@ -1,0 +1,25 @@
+<h1 md-dialog-title>Product List</h1>
+<md-dialog-content fxLayout="row">
+	<ngx-datatable fxFlex
+		[rows]="rows"
+		[columnMode]="'flex'"
+		[headerHeight]="50"
+		[footerHeight]="50"
+		[rowHeight]="50"
+		[scrollbarV]="false"
+		[scrollbarH]="false"
+		[selected]="selected"
+		[limit]="5"
+		[selectionType]="'single'"
+		(select)="onSelect($event)"
+	  class="material">
+	  	<ngx-datatable-column [flexGrow]="2" name="Product Number"></ngx-datatable-column>
+	  	<ngx-datatable-column [flexGrow]="2" name="Product Name"></ngx-datatable-column>
+	  	<ngx-datatable-column [flexGrow]="2" name="The Existing Quantity"></ngx-datatable-column>
+	  	<ngx-datatable-column [flexGrow]="1" name="Price"></ngx-datatable-column>
+	  </ngx-datatable>
+</md-dialog-content>
+<md-dialog-actions fxFlex fxLayout="row" fxLayoutGap="1" fxLayoutAlign="end">
+	<button md-button md-dialog-close>Cancel</button>
+	<button md-button color="primary" (click)="dialogInstance.close(selected)" class="mx-1">OK</button>
+</md-dialog-actions>

@@ -1,0 +1,37 @@
+<h1 md-dialog-title>Account List</h1>
+<md-dialog-content fxLayout="column">
+	<div fxLayout="row">
+		<md-input-container fxFlex>
+			<input type="text" name="" mdInput placeholder="Account" [(ngModel)]="accountSearch" (change)="filterByAccount()">
+		</md-input-container>
+		<md-input-container fxFlex>
+			<input type="text" name="" mdInput placeholder="Account Number" [(ngModel)]="accountNumberSearch" (change)="filterByAccountNumber()">
+		</md-input-container>
+		<md-input-container fxFlex>
+			<input type="text" name="" mdInput placeholder="quality Account" [(ngModel)]="qualityAccountSearch" (change)="filterByQualityAccount()">
+		</md-input-container>
+	</div>
+	<div fxLayout="row">		
+		<ngx-datatable fxFlex
+			[rows]="rows"
+			[columnMode]="'flex'"
+			[headerHeight]="50"
+			[footerHeight]="50"
+			[rowHeight]="50"
+			[scrollbarV]="false"
+			[scrollbarH]="false"
+			[selected]="selected"
+			[limit]="5"
+			[selectionType]="'single'"
+			(select)="onSelect($event)"
+		  class="material">
+		  	<ngx-datatable-column [flexGrow]="1" name="Account"></ngx-datatable-column>
+		  	<ngx-datatable-column [flexGrow]="1" name="Account Number"></ngx-datatable-column>
+		  	<ngx-datatable-column [flexGrow]="1" name="Quality Account"></ngx-datatable-column>
+		</ngx-datatable>
+	</div>
+</md-dialog-content>
+<md-dialog-actions fxFlex fxLayout="row" fxLayoutGap="1" fxLayoutAlign="end">
+	<button md-button md-dialog-close>Cancel</button>
+	<button md-button color="primary" (click)="dialogInstance.close(selected)" class="mx-1">OK</button>
+</md-dialog-actions>
