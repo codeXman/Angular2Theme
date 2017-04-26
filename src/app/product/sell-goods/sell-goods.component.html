@@ -4,9 +4,9 @@
             <md-card fxFlex>
             	<md-card-content fxLayout="row">
             		<div fxFlex="50">
-                		<img *ngIf="showHeader" src="/assets/images/metaware_logo.png" height="40px" class="mx-1 mt-1">
+                		<img *ngIf="showHeader" src="/assets/images/metaware_logo.png" height="40px">
             		</div>
-            		<div fxFlex="50">
+            		<div fxFlex="50" dir="ltr">
             			<h5>NKC SOFT LABS</h5>
             			<p>77777 Phone</p>            			
             		</div>            		
@@ -106,8 +106,7 @@
                     	</div>
                     	<md-divider></md-divider>
                         <div fxLayout="row">
-                            <ngx-datatable fxFlex [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="50" [scrollbarV]="false" [scrollbarH]="false" 
-                            	[selectionType]="'multi'" (select)="onSelect($event)" class="material">
+                            <ngx-datatable fxFlex [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="50" [scrollbarV]="false" [scrollbarH]="false" class="material">
                                 <ngx-datatable-column [flexGrow]="2" name="Product Name"></ngx-datatable-column>
                                 <ngx-datatable-column [flexGrow]="1" name="Price"></ngx-datatable-column>
                                 <ngx-datatable-column [flexGrow]="2" name="Quantity"></ngx-datatable-column>
