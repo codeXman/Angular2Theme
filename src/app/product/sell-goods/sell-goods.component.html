@@ -2,37 +2,38 @@
     <div fxFlex="100" fxLayout="column">
         <div fxLayout="row">
             <md-card fxFlex>
-            	<md-card-content fxLayout="row">
-            		<div fxFlex="50">
-                		<img *ngIf="showHeader" src="/assets/images/metaware_logo.png" height="40px">
+            	<md-card-content fxLayout="row" class="my-0">
+            		<div fxFlex="33" fxLayout="column">
+            			<div>
+                			<img *ngIf="showHeader" src="/assets/images/metaware_logo.png" height="25px">
+            			</div>
+            			<div>
+                    		<button md-button (click)="showHeader=!showHeader;" class="mr-1">{{showHeader?'Hide':'Show'}}</button>
+            			</div>
             		</div>
-            		<div fxFlex="50" dir="ltr">
-            			<h5>NKC SOFT LABS</h5>
-            			<p>77777 Phone</p>            			
+            		<div fxFlex="33" fxLayoutAlign="center">
+                        <h1 class="my-1">{{'Bill' | translate}}</h1>
+            		</div>
+            		<div fxFlex="33" dir="ltr">
+            			<h5 class="my-0 text-lg text-weight-bold">NKC SOFT LABS</h5>
+            			<p class="my-0 text-lg text-weight-bold">77777 Phone</p>            			
             		</div>            		
             	</md-card-content>
-                <md-card-actions>
-                    <button md-button (click)="showHeader=!showHeader;" class="mr-1">{{showHeader?'Hide':'Show'}}</button>
-                </md-card-actions>
             </md-card>
         </div>
         <div fxLayout="row">
             <md-card fxFlex>
-                <md-card-header class="" fxFlex fxLayoutAlign="center">
-                    <md-card-title class="py-0" fxFlex>
-                        <h1 class="my-1">{{'Bill' | translate}}</h1></md-card-title>
-                </md-card-header>
                 <md-card-content>
                     <form fxLayout="column">
                         <div fxLayout="row">
                             <div fxLayout="column" fxFlex class="mx-1">
                                 <div fxLayout="row">
-                                    <md-input-container class="mb-1" fxFlex>
-                                        <input mdInput [(ngModel)]="customer.name" name="customerName" placeholder="{{'Customer Name' | translate}}">
-                                    </md-input-container>
                                     <button md-icon-button (click)="openSearchProgressDialog()">
                                         <md-icon>search</md-icon>
                                     </button>
+                                    <md-input-container class="mb-1" fxFlex>
+                                        <input mdInput [(ngModel)]="customer.name" name="customerName" placeholder="{{'Customer Name' | translate}}">
+                                    </md-input-container>
                                 </div>
                                 <md-checkbox [(ngModel)]="customer.isDelivered" name="isDelivered">{{"Delivered" | translate}}</md-checkbox>
                             </div>
@@ -52,12 +53,12 @@
                                     </md-select>
                                 </div>
                                 <div fxLayout="row" *ngIf="customer.quality==2">
-                                    <md-input-container fxFlex>
-                                        <input mdInput [(ngModel)]="customer.accountNumber" name="accountNumber" placeholder="{{'Account Number'  | translate}}">
-                                    </md-input-container>
                                     <button md-icon-button (click)="openListOfAccountDialog()">
                                         <md-icon>search</md-icon>
                                     </button>
+                                    <md-input-container fxFlex>
+                                        <input mdInput [(ngModel)]="customer.accountNumber" name="accountNumber" placeholder="{{'Account Number'  | translate}}">
+                                    </md-input-container>
                                 </div>
                             </div>
                         </div>
@@ -78,12 +79,12 @@
                     <div fxLayout="column">
                     	<div fxLayout="row">
                     		<div fxFlex fxLayout="row" class="ml-1">
-	                    		<md-input-container>
-	                    			<input type="text" name="" mdInput [(ngModel)]="product.name" placeholder="Product Name">
-	                    		</md-input-container>
                     			<button md-icon-button (click)="openListOfProductDialog()" color="primary" class="mr-1">
                     				<md-icon>search</md-icon>
                     			</button>
+	                    		<md-input-container>
+	                    			<input type="text" name="" mdInput [(ngModel)]="product.name" placeholder="Product Name">
+	                    		</md-input-container>
                     		</div>
                     		<div fxFlex>
 	                    		<md-input-container fxFlex>
@@ -101,30 +102,38 @@
 	                    		</md-input-container>                    			
                     		</div>
                     		<div fxFlex>
-                    			<button md-button (click)="checkOut()">Checkout</button>
+                    			<button md-button color="accent" (click)="checkOut()">
+                    				<!-- <md-icon>add</md-icon> -->
+                    				Add to List
+                    			</button>
                     		</div>
                     	</div>
                     	<md-divider></md-divider>
-                        <div fxLayout="row">
-                            <ngx-datatable fxFlex [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="50" [scrollbarV]="false" [scrollbarH]="false" class="material">
-                                <ngx-datatable-column [flexGrow]="2" name="Product Name"></ngx-datatable-column>
+                        <div fxLayout="row" class="mt-2">
+                            <ngx-datatable fxFlex [rows]="rows" [columnMode]="'flex'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="50" [scrollbarV]="false" [scrollbarH]="false" class="material striped">
+                                <ngx-datatable-column [flexGrow]="1" name="Product Name"></ngx-datatable-column>
                                 <ngx-datatable-column [flexGrow]="1" name="Price"></ngx-datatable-column>
-                                <ngx-datatable-column [flexGrow]="2" name="Quantity"></ngx-datatable-column>
+                                <ngx-datatable-column [flexGrow]="1" name="Quantity"></ngx-datatable-column>
                                 <ngx-datatable-column [flexGrow]="1" name="Total"></ngx-datatable-column>
+                                <ngx-datatable-column [flexGrow]="1" name="Actions">
+                                	<template ngx-datatable-cell-template let-value="value" let-row="row">
+                                		<button md-button color="red" (click)="delete(row)">
+                                			<md-icon>delete</md-icon>
+                                		</button>                                		
+                                	</template>                                	
+                                </ngx-datatable-column>
                             </ngx-datatable>
                         </div>
-                        <div fxLayout="row" *ngIf="netTotal > 0">
-                        	<div fxFlex="25"></div>
-                        	<div fxFlex="25"></div>
-                        	<div fxFlex="25" fxLayout="column">
-                        		<div>Net Total</div>
-                        		<div>Tax %</div>
-                        		<div>Total</div>
+                        <div fxLayout="row" *ngIf="netTotal > 0" class="pr-0 pl-1">
+                        	<div fxFlex="74" fxLayout="column" dir="ltr" class="">
+                        		<div class="py-1 pl-1 text-weight-bold border">Net Total</div>
+                        		<div class="py-1 pl-1 text-weight-bold border">Tax %</div>
+                        		<div class="py-1 pl-1 text-weight-bold border">Total</div>
                         	</div>
-                        	<div fxFlex="25" fxLayout="column">
-                        		<div>{{netTotal}}</div>
-                        		<div>{{tax}}</div>
-                        		<div>{{grandTotal}}</div>
+                        	<div fxFlex="26" fxLayout="column" class="">
+                        		<div class="py-1 pr-1 text-weight-bold border">{{netTotal}}</div>
+                        		<div class="py-1 pr-1 text-weight-bold border">{{tax}}</div>
+                        		<div class="py-1 pr-1 text-weight-bold border">{{grandTotal}}</div>
                         	</div>
                         </div>
                     </div>
@@ -134,7 +143,7 @@
         <div fxLayout="row">
             <md-card fxFlex>
                 <md-card-actions class="pr-2">
-                    <button md-button md-raised-button color="primary">{{'Sign Up' | translate}}</button>
+                    <button md-button md-raised-button color="primary" (click)="signUp()" >{{'Sign Up' | translate}}</button>
                     <button md-button md-raised-button color="primary">{{'Open The Printer' | translate}}</button>
                 </md-card-actions>
             </md-card>

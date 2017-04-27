@@ -6,7 +6,7 @@ import { MdDialog, MdSnackBar } from '@angular/material';
 import { AccountListDialog } from '../../product/dialog/account-list/account-list-dialog.component';
 import { ProductListDialog } from '../../product/dialog/product-list/product-list-dialog.component';
 import { SearchProgressDialog } from '../../product/dialog/search-progress/search-progress-dialog.component';
-
+import { ConfirmDialog } from '../../product/dialog/confirm/confirm-dialog.component';
 
 @Component({
   selector: 'app-sell-goods',
@@ -71,7 +71,7 @@ export class SellGoodsComponent implements OnInit {
   customer = {
     name : '',
     isDelivered : true,
-    date : '',
+    date : new Date(),
     quality : 2,
     // options : DatePickerOptions,
     accountNumber : '',
@@ -92,7 +92,7 @@ export class SellGoodsComponent implements OnInit {
     //TODO
     let dialogInstance = this.dialog.open(AccountListDialog, this.modalConfig);
       dialogInstance.afterClosed().subscribe(result => {
-        console.log(result);
+        // console.log(result);
         if(result != null || result != undefined){
           if(result.length > 0)
             this.customer.accountNumber = result[0].accountNumber;
@@ -142,15 +142,35 @@ export class SellGoodsComponent implements OnInit {
     }
   }
 
+  signUp = function(){
+    if(this.rows.length > 0)
+      this.showSnackBar("Storage has been successfully");
+    else
+      this.showSnackBar("There is no product in the invoice");
+  }
+
   showSnackBar = function(message: string){
     this.snackBar.open(message,null,{
       duration : '2000'
     })
   }
 
+  delete = function(row){
+    // console.log(row);
+    let dialogInstance = this.dialog.open(ConfirmDialog,{width:'360px'});
+    dialogInstance.afterClosed().subscribe(result=>{
+      // console.log(result);
+      if(result){
+          // console.log(this.rows.indexOf(row));
+          this.rows.splice(this.rows.indexOf(row),1);
+      }
+    })
+
+  }
+
 }
 
 // @Component({
-//   templateUrl : './user-name-search-dialog.component.html'
+//   template : ''
 // })
-// export class UserNameSearchDialog{}
+// export class ConfirmDialog{}

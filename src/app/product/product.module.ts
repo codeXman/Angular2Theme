@@ -28,6 +28,7 @@ import { BuyGoodsComponent } from './buy-goods/buy-goods.component';
 import { AccountListDialog } from './dialog/account-list/account-list-dialog.component';
 import { ProductListDialog } from './dialog/product-list/product-list-dialog.component';
 import { SearchProgressDialog } from './dialog/search-progress/search-progress-dialog.component';
+import { ConfirmDialog } from './dialog/confirm/confirm-dialog.component';
 
 // import { EditComponent } from './edit/edit.component';
 // import { PricingComponent } from './pricing/pricing.component';
@@ -61,12 +62,14 @@ import { SearchProgressDialog } from './dialog/search-progress/search-progress-d
     BuyGoodsComponent,
     AccountListDialog,
     ProductListDialog,
-    SearchProgressDialog
+    SearchProgressDialog,
+    ConfirmDialog
   ],
   entryComponents : [
     AccountListDialog,
     ProductListDialog,
-    SearchProgressDialog
+    SearchProgressDialog,
+    ConfirmDialog
   ]
 })
 
